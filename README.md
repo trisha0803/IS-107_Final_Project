@@ -2,6 +2,7 @@
 Building a Business Intelligence Solution for a Retail Store
 
 Libraries needed:
+
 *pandas
 > pip install pandas
 
