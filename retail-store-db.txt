@@ -1,0 +1,38 @@
+-- Dim_Time Table
+CREATE TABLE Dim_Time (
+    date_key SERIAL PRIMARY KEY,
+    date DATE,
+    year INTEGER,
+    month INTEGER,
+    day INTEGER,
+    quarter INTEGER
+);
+
+-- Dim_Product Table
+CREATE TABLE Dim_Product (
+    product_key SERIAL PRIMARY KEY,
+    StockCode VARCHAR(20) UNIQUE,
+    Description VARCHAR(255)
+);
+
+-- Dim_Customer Table
+CREATE TABLE Dim_Customer (
+    customer_key SERIAL PRIMARY KEY,
+    CustomerID INTEGER UNIQUE,
+    Country VARCHAR(100)
+);
+
+-- Fact_Sales Table
+CREATE TABLE Fact_Sales (
+    sale_id SERIAL PRIMARY KEY,
+    InvoiceNo VARCHAR(50),
+    Quantity INTEGER,
+    UnitPrice NUMERIC(10, 2),
+    total_amount NUMERIC(10, 2),
+    date_key INTEGER,
+    product_key INTEGER,
+    customer_key INTEGER,
+	FOREIGN KEY (date_key) REFERENCES Dim_Time(date_key),
+	FOREIGN KEY (product_key) REFERENCES Dim_Product(product_key),
+	FOREIGN KEY (customer_key) REFERENCES Dim_Customer(customer_key)
+);
