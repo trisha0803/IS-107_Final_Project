@@ -577,6 +577,7 @@ elif selected == 'Sales':
             use_container_width=True
         )
 
+#if "Insights" is selected in the option_menu 
 elif selected == "Insights":
     st.title("📑 Insights")
     st.markdown("---")
@@ -700,6 +701,9 @@ elif selected == "Insights":
             f"• Active in {customer_countries} countries\n"
             f"• Top 3 markets: {', '.join(top_3_countries.index)}"
         )
+
+#if "Product Forecasting" is selected in the option_menu 
+# elif selected == 'Product Forecasting':
 
     
 
